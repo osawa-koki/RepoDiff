@@ -26,6 +26,9 @@ public static partial class Program
       var gitlab_repos = GetGitLabRepos();
       repos.AddRange(gitlab_repos);
 
+      // リポジトリ一覧の重複を削除
+      repos = repos.Distinct().ToList();
+
       return 0;
     } catch (Exception ex)
     {
