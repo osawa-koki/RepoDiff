@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="config.xsd">
+
+  <GitHub>
+    <username></username>
+    <token></token>
+  </GitHub>
+
+  <GitLab>
+    <username></username>
+    <token></token>
+  </GitLab>
+
+  <output_path>output.json</output_path>
+
+</config>
