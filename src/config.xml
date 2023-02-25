@@ -3,10 +3,12 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="config.xsd">
 
   <GitHub>
-    <token></token>
+    <username>osawa-koki</username>
+    <token>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</token>
   </GitHub>
 
   <GitLab>
+    <username></username>
     <token></token>
   </GitLab>
 

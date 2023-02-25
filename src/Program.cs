@@ -13,6 +13,11 @@ public static partial class Program
         return 1;
       }
 
+      List<string> repos = new();
+
+      var github_repos = GetGitHubRepos();
+      repos.AddRange(github_repos);
+
       return 0;
     } catch (Exception ex)
     {

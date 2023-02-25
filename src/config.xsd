@@ -7,6 +7,7 @@
       <xsd:element name="GitHub">
         <xsd:complexType>
           <xsd:sequence>
+            <xsd:element name="username" type="xsd:string" />
             <xsd:element name="token" type="xsd:string" />
           </xsd:sequence>
         </xsd:complexType>
@@ -15,6 +16,7 @@
       <xsd:element name="GitLab">
         <xsd:complexType>
           <xsd:sequence>
+            <xsd:element name="username" type="xsd:string" />
             <xsd:element name="token" type="xsd:string" />
           </xsd:sequence>
         </xsd:complexType>

@@ -75,19 +75,19 @@ internal class Config
     var configNode = XElement.Parse(xml_content);
 
     var githubNode = configNode.Element("GitHub")!;
-    var githubToken = githubNode.Element("token")!.Value;
     GithubStruct githubStruct = new()
     {
-      token = githubToken
+      username = githubNode.Element("username")!.Value,
+      token = githubNode.Element("token")!.Value,
     };
     config.github = githubStruct;
 
     var gitlabNode = configNode.Element("GitLab")!;
-    var gitlabToken = gitlabNode.Element("token")!.Value;
     GitlabStruct gitlabStruct = new()
     {
-      token = gitlabToken
-    };
+      username = gitlabNode.Element("username")!.Value,
+      token = gitlabNode.Element("token")!.Value,
+  };
     config.gitlab = gitlabStruct;
 
     Program.logger.Info("Config loaded");
@@ -104,10 +104,12 @@ internal struct ConfigStruct
 
 internal struct GithubStruct
 {
+  internal string username;
   internal string token;
 }
 
 internal struct GitlabStruct
 {
+  internal string username;
   internal string token;
 }
