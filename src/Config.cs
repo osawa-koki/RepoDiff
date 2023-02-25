@@ -90,6 +90,8 @@ internal class Config
   };
     config.gitlab = gitlabStruct;
 
+    config.output_path = configNode.Element("output_path")!.Value;
+
     Program.logger.Info("Config loaded");
 
     return true;
@@ -100,6 +102,7 @@ internal struct ConfigStruct
 {
   internal GithubStruct github;
   internal GitlabStruct gitlab;
+  internal string output_path;
 }
 
 internal struct GithubStruct

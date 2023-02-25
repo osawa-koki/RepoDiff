@@ -1,4 +1,6 @@
 
+using Newtonsoft.Json;
+
 public static partial class Program
 {
   internal static readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
@@ -28,6 +30,24 @@ public static partial class Program
 
       // リポジトリ一覧の重複を削除
       repos = repos.Distinct().ToList();
+
+      // GitHubに存在しないリポジトリを取得
+      var missing_repos_github = repos.Except(github_repos).ToList();
+
+      // GitLabに存在しないリポジトリを取得
+      var missing_repos_gitlab = repos.Except(gitlab_repos).ToList();
+
+      // json文字列に変換
+      var missing_repos = JsonConvert.SerializeObject(new {
+        missing = new
+        {
+          github = missing_repos_github,
+          gitlab = missing_repos_gitlab,
+        }
+      }, Formatting.Indented);
+
+      // ファイルに書き込み
+      File.WriteAllText(Config.config.output_path, missing_repos);
 
       return 0;
     } catch (Exception ex)
