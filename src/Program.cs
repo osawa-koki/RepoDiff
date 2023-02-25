@@ -15,8 +15,16 @@ public static partial class Program
 
       List<string> repos = new();
 
+      // GitHubリポジトリ一覧
       var github_repos = GetGitHubRepos();
       repos.AddRange(github_repos);
+
+      // 認証情報削除
+      HttpModule.RemoveAuth();
+
+      // GitLabリポジトリ一覧削除
+      var gitlab_repos = GetGitLabRepos();
+      repos.AddRange(gitlab_repos);
 
       return 0;
     } catch (Exception ex)
