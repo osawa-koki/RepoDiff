@@ -12,4 +12,6 @@
     <token></token>
   </GitLab>
 
+  <output_path>output.json</output_path>
+
 </config>
